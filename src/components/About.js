@@ -46,7 +46,7 @@ const About = () => {
         }}
       >
         <Typography variant="h4" style={{ marginTop: "1rem" }}>
-          Soban Khan
+          Furqan Khan
         </Typography>
       </div>
       <div
