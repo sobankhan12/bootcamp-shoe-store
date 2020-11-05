@@ -32,4 +32,4 @@ jobs:
     - name: Install Surge
       run: npm install -g surge
     - name: Run Surge
-      run:  surge ./build/ bootcamp-shoe-store-by-soban.surge.sh --token ${{secrets.SURGE1}}
+      run:  surge ./build/ https://bootcamp-shoe-store-by-soban.surge.sh --token ${{secrets.SURGE1}}
