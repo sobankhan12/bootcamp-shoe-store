@@ -19,5 +19,5 @@ jobs:
         with:
             cmd: install # will run `yarn install` command  
       - name: yarn create react app
-        run: yarn build && ls -la
+        run: yarn build && ls -la && ls build
       
