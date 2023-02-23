@@ -1,27 +1,29 @@
+name: Build & deploy
+
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  upload:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - name: Configure AWS credentials
+      - uses: actions/checkout@v2
+ 
+      - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id:${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key:${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-central-1
-          
-          
-      - name: Install Node js
-        uses: actions/setup-node@v2-beta
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
         with:
-          node-version: 12
-      - uses: borales/actions-yarn@v2.0.0
-        with:
-            cmd: install # will run `yarn install` command  
-      - name: yarn create react app
-        run: yarn build && ls -la && ls build
-      - name: Deploy to s3
+          node-version: 12.x
+      - name: Install dependencies
+        run: yarn
+      - name: Build
+        run: yarn build
+      - name: Deploy
         run: aws s3 sync ./build s3://${{ secrets.AWS_BUCKET }}
-
-      
