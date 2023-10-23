@@ -10,13 +10,12 @@ phases:
       - echo Build started on `date`
       - echo Compiling the Node.js code
       - yarn install
-  post_build:
-    commands:
       - echo Build completed on `date`
       - yarn build
       - ls -la
       - cd build && ls -la 
+  post_build:
+    commands:
+      - echo copy files on s3 on `date`
+      - aws s3 cp build/* s3://soban-static -recursive
       
-artifacts:
-  files:
-    - build/*
