@@ -9,11 +9,11 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      - yarn add
+      - yarn install
   post_build:
     commands:
       - echo Build completed on `date`
-      - yarn run build
+      - yarn build build
       
 artifacts:
   files:
