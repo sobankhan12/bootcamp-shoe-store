@@ -15,7 +15,7 @@ phases:
       - echo Build completed on `date`
       - yarn build
       - ls -la
-      -ls -la build
+      - cd build && ls -la 
       
 artifacts:
   files:
