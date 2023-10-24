@@ -17,5 +17,5 @@ phases:
   post_build:
     commands:
       - echo copy files on s3 on `date`
-      - aws s3 cp build/ s3://soban-static/ --recursive
+      - aws s3 cp build/ s3://soban-static1/ --recursive
       
