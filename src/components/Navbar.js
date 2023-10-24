@@ -56,7 +56,7 @@ export default function ButtonAppBar() {
             to="products"
           >
             <Button  color="inherit">
-              Products
+              Products Changed
             </Button>
           </Link>
           <Link className={classes.link} to="about">
